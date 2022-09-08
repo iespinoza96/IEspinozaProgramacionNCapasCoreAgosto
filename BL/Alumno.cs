@@ -85,56 +85,5 @@ namespace BL
 
             return result;
         }
-        public static ML.Result GetById(int IdAlumno)
-        {
-            ML.Result result = new ML.Result();
-            try
-            {
-                using (DL.LEscogidoMarzoContext context = new DL.LEscogidoMarzoContext())
-                {
-                    var obj = context.Materia.FromSqlRaw($"MateriaGetById {IdAlumno}").AsEnumerable().FirstOrDefault();
-
-                    if (obj != null)
-                    {
-                        ML.Materia materia = new ML.Materia();
-                        materia.IdMateria = obj.IdMateria;
-                        materia.Nombre = obj.Nombre;
-                        materia.Costo = obj.Costo;
-                        materia.Creditos = obj.Creditos.Value;
-                        materia.Imagen = obj.Imagen;
-                        materia.Status = obj.Status;
-
-                        materia.Semestre = new ML.Semestre();
-                        materia.Semestre.IdSemestre = obj.IdSemestre.Value;
-
-                        materia.Grupo = new ML.Grupo();
-                        materia.Grupo.IdGrupo = obj.IdGrupo.Value;
-                        materia.Grupo.Horario = obj.Horario;
-
-                        materia.Grupo.Plantel = new ML.Plantel();
-                        materia.Grupo.Plantel.IdPlantel = obj.IdPlantel;
-                        materia.Grupo.Plantel.Nombre = obj.Plantel;
-
-                        result.Object = materia;
-                        result.Correct = true;
-
-                    }
-                    else
-                    {
-                        result.Correct = false;
-                        result.ErrorMessage = "No se pudo realizar la consulta";
-                    }
-
-                }
-            }
-
-            catch (Exception ex)
-            {
-                result.Correct = false;
-                result.ErrorMessage = ex.Message;
-                result.Ex = ex;
-            }
-            return result;
-        }
     }
 }
