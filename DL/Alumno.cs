@@ -16,7 +16,7 @@ namespace DL
         public string? ApellidoMaterno { get; set; }
         public DateTime? FechaNacimiento { get; set; }
         public string? Sexo { get; set; }
-        public byte? IdSemestre { get; set; }
+        public int? IdSemestre { get; set; }
 
         public virtual Semestre? IdSemestreNavigation { get; set; }
         public virtual ICollection<Direccion> Direccions { get; set; }

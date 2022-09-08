@@ -10,7 +10,7 @@ namespace DL
             Alumnos = new HashSet<Alumno>();
         }
 
-        public byte IdSemestre { get; set; }
+        public int IdSemestre { get; set; }
         public string? Nombre { get; set; }
 
         public virtual ICollection<Alumno> Alumnos { get; set; }
