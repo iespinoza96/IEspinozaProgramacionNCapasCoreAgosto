@@ -20,5 +20,8 @@ namespace DL
 
         public virtual Semestre? IdSemestreNavigation { get; set; }
         public virtual ICollection<Direccion> Direccions { get; set; }
+
+        //Semestre
+        public string NombreSemestre { get; set; }
     }
 }
