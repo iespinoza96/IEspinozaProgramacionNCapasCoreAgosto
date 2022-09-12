@@ -43,6 +43,10 @@
                     <th class="text-center" scope="col">
                         Semestre
                     </th>
+
+                    <th class="text-center" scope="col">
+                        Imagen
+                    </th>
                     <th class="text-center" scope="col">
                         Eliminar
                     </th>
@@ -75,6 +79,17 @@
                         <td class="text-center">
 
                             @alumno.Semestre.Nombre
+                        </td>
+                        <td class="text-center">
+                           
+                            @if (alumno.Imagen == null)
+                            {
+                             <img src="~/Imagenes/SinAlumno.png" style="width:80px; height:40px" />
+                            }
+                            else
+                            {
+                             <img src="data:image/*;base64,@alumno.Imagen" style="width:75px; height:35px" />
+                            }
                         </td>
                         <th class="text-center">
                             <a class="btn btn-danger bi bi-trash3" href="@Url.Action("Delete", "Usuario", new { IdUsuario = alumno.IdAlumno })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a>

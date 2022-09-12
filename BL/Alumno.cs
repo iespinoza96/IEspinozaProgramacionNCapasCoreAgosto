@@ -12,7 +12,7 @@ namespace BL
             {
                 using (DL.LEscogidoProgramacionNCapasAgostoContext context = new DL.LEscogidoProgramacionNCapasAgostoContext())
                 {
-                    var query = context.Database.ExecuteSqlRaw($"AlumnoAdd '{alumno.Nombre}', '{alumno.ApellidoPaterno}', '{alumno.ApellidoMaterno}', '{alumno.FechaNacimiento}', '{alumno.Sexo}', {alumno.Semestre.IdSemestre}");
+                    var query = context.Database.ExecuteSqlRaw($"AlumnoAdd '{alumno.Nombre}', '{alumno.ApellidoPaterno}', '{alumno.ApellidoMaterno}', '{alumno.FechaNacimiento}', '{alumno.Sexo}', {alumno.Semestre.IdSemestre},'{alumno.Imagen}'");
                     //ExecuteSqlRaw -- add,delete,update
                     //FromSqlRaw -- consultas getall, getbyid
 
@@ -57,6 +57,7 @@ namespace BL
                             alumno.ApellidoMaterno = obj.ApellidoMaterno;
                             alumno.FechaNacimiento = obj.FechaNacimiento.Value.ToString("dd-MM-yyyy");
                             alumno.Sexo = obj.Sexo;
+                            alumno.Imagen = obj.Imagen;
 
                             alumno.Semestre = new ML.Semestre();
                             alumno.Semestre.IdSemestre = obj.IdSemestre.Value;
