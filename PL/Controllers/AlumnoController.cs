@@ -57,6 +57,7 @@ namespace PL.Controllers
             }
 
             ML.Result result = new ML.Result();
+
             if (alumno.IdAlumno == 0)
             {
                 result = BL.Alumno.Add(alumno);
