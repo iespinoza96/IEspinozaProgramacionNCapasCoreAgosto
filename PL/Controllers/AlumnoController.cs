@@ -8,8 +8,29 @@ namespace PL.Controllers
         [HttpGet]
         public ActionResult GetAll()
         {
-            ML.Result result = BL.Alumno.GetAll();
             ML.Alumno alumno = new ML.Alumno();
+
+
+
+            ML.Result result = BL.Alumno.GetAll(alumno);
+            
+            if (result.Correct)
+            {
+                alumno.Alumnos = result.Objects;
+
+                return View(alumno);
+            }
+            else
+            {
+                return View(alumno);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult GetAll(ML.Alumno alumno)
+        {
+            ML.Result result = BL.Alumno.GetAll(alumno);
+            
             if (result.Correct)
             {
                 alumno.Alumnos = result.Objects;

@@ -33,7 +33,7 @@ namespace BL
             }
             return result;
         }
-        public static ML.Result GetAll()
+        public static ML.Result GetAll(ML.Alumno alumno)
         {
             ML.Result result = new ML.Result();
             try
@@ -43,14 +43,15 @@ namespace BL
 
                 {
 
-                    var query = context.Alumnos.FromSqlRaw($"AlumnoGetAll").ToList();
+                    var query = context.Alumnos.FromSqlRaw($"AlumnoGetAll '{alumno.Nombre}','{alumno.ApellidoPaterno}','{alumno.ApellidoMaterno}'").ToList();
 
                     result.Objects = new List<object>();
                     if (query != null)
                     {
                         foreach (var obj in query)
                         {
-                            ML.Alumno alumno = new ML.Alumno();
+                            alumno = new ML.Alumno();
+
                             alumno.IdAlumno = obj.IdAlumno;
                             alumno.Nombre = obj.Nombre;
                             alumno.ApellidoPaterno = obj.ApellidoPaterno;
