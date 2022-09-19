@@ -120,5 +120,34 @@ namespace PL.Controllers
 
             return bytes;
         }
+        [HttpGet]
+        public ActionResult UpdateStatus(int IdAlumno)
+        {
+            ML.Result result = BL.Alumno.GetById(IdAlumno);
+
+            if (result.Correct)
+            {
+                ML.Alumno alumno = new ML.Alumno();
+                alumno = ((ML.Alumno)result.Object);
+
+                alumno.Estatus = (alumno.Estatus) ? false : true;
+
+                result = BL.Alumno.Update(alumno);
+
+                if (result.Correct)
+                {
+                    ViewBag.Mensaje = "El estatus se actualizo correctamente";
+                }
+                else
+                {
+                    ViewBag.Mensaje = "Ocurrio un error al actualizar el Estatus" + result.ErrorMessage;
+                }
+            }
+            else
+            {
+                ViewBag.Mensaje = "Ocurrio un erro al actualizar el Estatus" + result.ErrorMessage;
+            }
+            return PartialView("Modal");
+        }
     }
 }
