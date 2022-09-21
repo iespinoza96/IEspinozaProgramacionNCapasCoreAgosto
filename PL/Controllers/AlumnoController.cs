@@ -11,7 +11,6 @@ namespace PL.Controllers
             ML.Alumno alumno = new ML.Alumno();
 
 
-
             ML.Result result = BL.Alumno.GetAll(alumno);
             
             if (result.Correct)
