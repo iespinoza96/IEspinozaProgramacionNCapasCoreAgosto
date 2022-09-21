@@ -25,7 +25,7 @@ static void ReadFile()
             alumno.ApellidoMaterno = lines[2];
             alumno.FechaNacimiento = lines[3];
             alumno.Sexo = lines[4];
-
+              
             alumno.Semestre = new ML.Semestre();
             alumno.Semestre.IdSemestre = int.Parse(lines[5]);
             alumno.Imagen = null;
