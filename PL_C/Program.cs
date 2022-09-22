@@ -39,7 +39,7 @@ static void ReadFile()
 
             ML.Result result = BL.Alumno.Add(alumno);
 
-
+             
             if (result.Correct)
             {
                 Console.WriteLine("Correcto");
