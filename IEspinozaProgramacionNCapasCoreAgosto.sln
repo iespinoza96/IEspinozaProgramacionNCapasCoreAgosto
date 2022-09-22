@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PL", "PL\PL.csproj", "{32ED
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{75555A84-2B91-411D-9555-B35DE786E885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL_Cosola", "PL_Cosola\PL_Cosola.csproj", "{C82126C9-ED37-4AD4-8E9B-6C3A3B5213F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL_C", "PL_C\PL_C.csproj", "{03327EA7-7593-41BE-8176-6F39280CC726}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,6 @@ Global
 		{75555A84-2B91-411D-9555-B35DE786E885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75555A84-2B91-411D-9555-B35DE786E885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75555A84-2B91-411D-9555-B35DE786E885}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C82126C9-ED37-4AD4-8E9B-6C3A3B5213F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C82126C9-ED37-4AD4-8E9B-6C3A3B5213F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C82126C9-ED37-4AD4-8E9B-6C3A3B5213F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C82126C9-ED37-4AD4-8E9B-6C3A3B5213F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

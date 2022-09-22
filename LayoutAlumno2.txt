@@ -1,0 +1,4 @@
+Nombre|ApellidoPaterno|ApellidoMaterno|FechaNacimiento|Sexo|IdSemestre|Calle|NumeroExterior|NumeroInterior|IdColonia
+Daniel|Espinosa|Sanchez|16-05-1999|M|2|calle|2|2|1
+Christian|Rosales||06-13-1998|M|1|calle|2|2|1
+
