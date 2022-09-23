@@ -49,7 +49,25 @@ namespace PL.Controllers
                                 excelCargaMasiva.CopyTo(stream);
                             }
 
-                            //string connectionString = _configuration["ConnectionStringExcel:value"] + filePath;
+                            string connectionString = _configuration["ConnectionStringExcel:value"] + filePath;
+
+                            ML.Result resultAlumnos = BL.Alumno.ConvertirExceltoDataTable(connectionString);
+
+                            if (resultAlumnos.Correct)
+                            {
+                                ML.Result resultValidacion = BL.Alumno.ValidarExcel(resultAlumnos.Objects);
+                                if (resultValidacion.Objects.Count == 0)
+                                {
+                                    resultValidacion.Correct = true;
+                                    HttpContext.Session.SetString("PathArchivo", filePath);
+                                }
+
+                                return View(resultValidacion);
+                            }
+                            else
+                            {
+
+                            }
                         }
                     }
                 }
