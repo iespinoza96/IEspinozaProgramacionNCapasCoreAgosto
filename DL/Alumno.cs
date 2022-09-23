@@ -18,11 +18,12 @@ namespace DL
         public string? Sexo { get; set; }
         public byte? IdSemestre { get; set; }
         public string? Imagen { get; set; }
-        public bool Estatus { get; set; }
+        public bool? Estatus { get; set; }
 
         public virtual Semestre? IdSemestreNavigation { get; set; }
         public virtual ICollection<Direccion> Direccions { get; set; }
 
         public string NombreSemestre { get; set; }
+
     }
 }

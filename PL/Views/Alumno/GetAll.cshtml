@@ -154,14 +154,14 @@
                         </td>
                         @if (alumno.Estatus)
                         {
-                            <td><a href="@Url.Action("UpdateStatus", "Materia", new { IdMateria = materia.IdMateria})"><img src="~/Image/ON.jpg" style="width:80px; height:40px" /></a></td>
+                            <td><a href="@Url.Action("UpdateStatus", "Alumno", new { IdAlumno = alumno.IdAlumno})"><img src="~/Image/ON.jpg" style="width:80px; height:40px" /></a></td>
                         }
                         else
                         {
-                            <td><a href="@Url.Action("UpdateStatus", "Materia", new { IdMateria = materia.IdMateria})"><img src="~/Image/OFF.jpg" style="width:75px; height:35px" /></a></td>
+                            <td><a href="@Url.Action("UpdateStatus", "Alumno", new { IdAlumno = alumno.IdAlumno})"><img src="~/Image/OFF.jpg" style="width:75px; height:35px" /></a></td>
                         }
                         <th class="text-center">
-                            <a class="btn btn-danger bi bi-trash3" href="@Url.Action("Delete", "Usuario", new { IdUsuario = alumno.IdAlumno })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a>
+                            <a class="btn btn-danger bi bi-trash3" href="@Url.Action("Delete", "Alumno", new { IdAlumno = alumno.IdAlumno })" onclick="return confirm('¿Estas seguro que deseas eliminar este registro?');"></a>
                         </th>
                     </tr>
                 }

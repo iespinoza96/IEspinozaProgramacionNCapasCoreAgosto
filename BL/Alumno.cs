@@ -60,7 +60,7 @@ namespace BL
                             alumno.FechaNacimiento = obj.FechaNacimiento.Value.ToString("dd-MM-yyyy");
                             alumno.Sexo = obj.Sexo;
                             alumno.Imagen = obj.Imagen;
-                            alumno.Estatus = obj.Estatus;
+                            alumno.Estatus = (bool)obj.Estatus;
 
                             alumno.Semestre = new ML.Semestre();
                             alumno.Semestre.IdSemestre = obj.IdSemestre.Value;
@@ -138,7 +138,7 @@ namespace BL
                             alumno.FechaNacimiento = obj.FechaNacimiento.Value.ToString("dd-MM-yyyy");
                             alumno.Sexo = obj.Sexo;
                             alumno.Imagen = obj.Imagen;
-                            alumno.Estatus = obj.Estatus;
+                            alumno.Estatus = (bool)obj.Estatus;
 
                             alumno.Semestre = new ML.Semestre();
                             alumno.Semestre.IdSemestre = obj.IdSemestre.Value;
