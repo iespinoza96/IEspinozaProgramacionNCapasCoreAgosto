@@ -15,6 +15,5 @@ namespace ML
         public string NumeroExterior { get; set; }
 
         public int IdColonia { get; set; }
-
     }
 }

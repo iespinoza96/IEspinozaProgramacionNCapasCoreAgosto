@@ -129,20 +129,20 @@ namespace BL
 
                     if (obj != null)
                     {
-                           ML.Alumno alumno = new ML.Alumno();
+                        ML.Alumno alumno = new ML.Alumno();
 
-                            alumno.IdAlumno = obj.IdAlumno;
-                            alumno.Nombre = obj.Nombre;
-                            alumno.ApellidoPaterno = obj.ApellidoPaterno;
-                            alumno.ApellidoMaterno = obj.ApellidoMaterno;
-                            alumno.FechaNacimiento = obj.FechaNacimiento.Value.ToString("dd-MM-yyyy");
-                            alumno.Sexo = obj.Sexo;
-                            alumno.Imagen = obj.Imagen;
-                            alumno.Estatus = obj.Estatus;
+                        alumno.IdAlumno = obj.IdAlumno;
+                        alumno.Nombre = obj.Nombre;
+                        alumno.ApellidoPaterno = obj.ApellidoPaterno;
+                        alumno.ApellidoMaterno = obj.ApellidoMaterno;
+                        alumno.FechaNacimiento = obj.FechaNacimiento.Value.ToString("dd-MM-yyyy");
+                        alumno.Sexo = obj.Sexo;
+                        alumno.Imagen = obj.Imagen;
+                        alumno.Estatus = obj.Estatus;
 
-                            alumno.Semestre = new ML.Semestre();
-                            alumno.Semestre.IdSemestre = obj.IdSemestre.Value;
-                            alumno.Semestre.Nombre = obj.NombreSemestre.ToString();
+                        alumno.Semestre = new ML.Semestre();
+                        alumno.Semestre.IdSemestre = obj.IdSemestre.Value;
+                        alumno.Semestre.Nombre = obj.NombreSemestre.ToString();
 
 
 

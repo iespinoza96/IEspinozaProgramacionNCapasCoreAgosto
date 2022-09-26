@@ -12,7 +12,7 @@ namespace PL.Controllers
 
 
             ML.Result result = BL.Alumno.GetAll(alumno);
-            
+
             if (result.Correct)
             {
                 alumno.Alumnos = result.Objects;
@@ -29,7 +29,7 @@ namespace PL.Controllers
         public ActionResult GetAll(ML.Alumno alumno)
         {
             ML.Result result = BL.Alumno.GetAll(alumno);
-            
+
             if (result.Correct)
             {
                 alumno.Alumnos = result.Objects;
@@ -52,7 +52,7 @@ namespace PL.Controllers
 
             if (IdAlumno == null)
             {
-                alumno.Semestre.Semestres = result.Objects;
+                //alumno.Semestre.Semestres = result.Objects;
                 return View(alumno);
             }
             else

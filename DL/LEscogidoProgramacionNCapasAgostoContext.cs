@@ -27,8 +27,8 @@ namespace DL
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-VA31VKK7; Database= LEscogidoProgramacionNCapasAgosto; Trusted_Connection=True; User ID=sa; Password=pass@word1;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=.; Database= LEscogidoProgramacionNCapasAgosto; Trusted_Connection=True; User ID=sa; Password=pass@word1;");
             }
         }
 
@@ -37,7 +37,7 @@ namespace DL
             modelBuilder.Entity<Alumno>(entity =>
             {
                 entity.HasKey(e => e.IdAlumno)
-                    .HasName("PK__Alumno__460B4740900FEE4E");
+                    .HasName("PK__Alumno__460B474099C5863A");
 
                 entity.ToTable("Alumno");
 
@@ -65,13 +65,13 @@ namespace DL
                 entity.HasOne(d => d.IdSemestreNavigation)
                     .WithMany(p => p.Alumnos)
                     .HasForeignKey(d => d.IdSemestre)
-                    .HasConstraintName("FK__Alumno__IdSemest__24927208");
+                    .HasConstraintName("FK__Alumno__IdSemest__1DE57479");
             });
 
             modelBuilder.Entity<Direccion>(entity =>
             {
                 entity.HasKey(e => e.IdDireccion)
-                    .HasName("PK__Direccio__1F8E0C7688807023");
+                    .HasName("PK__Direccio__1F8E0C76A88127F1");
 
                 entity.ToTable("Direccion");
 
@@ -90,13 +90,13 @@ namespace DL
                 entity.HasOne(d => d.IdAlumnoNavigation)
                     .WithMany(p => p.Direccions)
                     .HasForeignKey(d => d.IdAlumno)
-                    .HasConstraintName("FK__Direccion__IdAlu__36B12243");
+                    .HasConstraintName("FK__Direccion__IdAlu__1ED998B2");
             });
 
             modelBuilder.Entity<Grupo>(entity =>
             {
                 entity.HasKey(e => e.IdGrupo)
-                    .HasName("PK__Grupo__303F6FD95F3A9309");
+                    .HasName("PK__Grupo__303F6FD98CC97767");
 
                 entity.ToTable("Grupo");
 
@@ -107,13 +107,13 @@ namespace DL
                 entity.HasOne(d => d.IdPlantelNavigation)
                     .WithMany(p => p.Grupos)
                     .HasForeignKey(d => d.IdPlantel)
-                    .HasConstraintName("FK__Grupo__IdPlantel__2A4B4B5E");
+                    .HasConstraintName("FK__Grupo__IdPlantel__1FCDBCEB");
             });
 
             modelBuilder.Entity<Horario>(entity =>
             {
                 entity.HasKey(e => e.IdHorario)
-                    .HasName("PK__Horario__1539229B186B0857");
+                    .HasName("PK__Horario__1539229B06E3E34F");
 
                 entity.ToTable("Horario");
 
@@ -124,13 +124,13 @@ namespace DL
                 entity.HasOne(d => d.IdGrupoNavigation)
                     .WithMany(p => p.Horarios)
                     .HasForeignKey(d => d.IdGrupo)
-                    .HasConstraintName("FK__Horario__IdGrupo__2D27B809");
+                    .HasConstraintName("FK__Horario__IdGrupo__20C1E124");
             });
 
             modelBuilder.Entity<Plantel>(entity =>
             {
                 entity.HasKey(e => e.IdPlantel)
-                    .HasName("PK__Plantel__485FDCFE8A4DA16E");
+                    .HasName("PK__Plantel__485FDCFE82326C6E");
 
                 entity.ToTable("Plantel");
 
@@ -142,7 +142,7 @@ namespace DL
             modelBuilder.Entity<Semestre>(entity =>
             {
                 entity.HasKey(e => e.IdSemestre)
-                    .HasName("PK__Semestre__BD1FD7F834460859");
+                    .HasName("PK__Semestre__BD1FD7F80A877B67");
 
                 entity.ToTable("Semestre");
 
