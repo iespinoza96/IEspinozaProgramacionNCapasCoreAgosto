@@ -15,7 +15,7 @@ namespace BL
                 alumno.Estatus = true;
                 using (DL.LEscogidoProgramacionNCapasAgostoContext context = new DL.LEscogidoProgramacionNCapasAgostoContext())
                 {
-                    var query = context.Database.ExecuteSqlRaw($"AlumnoAdd '{alumno.Nombre}', '{alumno.ApellidoPaterno}', '{alumno.ApellidoMaterno}', '{alumno.FechaNacimiento}', '{alumno.Sexo}', {alumno.Semestre.IdSemestre},'{alumno.Imagen}','{alumno.Direccion.Calle}','{alumno.Direccion.NumeroExterior}',,'{alumno.Direccion.NumeroInterior}',{alumno.Direccion.IdColonia}");
+                    var query = context.Database.ExecuteSqlRaw($"AlumnoAdd '{alumno.Nombre}', '{alumno.ApellidoPaterno}', '{alumno.ApellidoMaterno}', '{alumno.FechaNacimiento}', '{alumno.Sexo}', {alumno.Semestre.IdSemestre},'{alumno.Imagen}','{alumno.Direccion.Calle}','{alumno.Direccion.NumeroExterior}','{alumno.Direccion.NumeroInterior}',{alumno.Direccion.IdColonia}");
                     //ExecuteSqlRaw -- add,delete,update
                     //FromSqlRaw -- consultas getall, getbyid
 

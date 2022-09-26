@@ -66,11 +66,23 @@ namespace PL.Controllers
                             }
                             else
                             {
-
+                                ViewBag.Message = "Ocurrio un error al leer el arhivo";
                             }
                         }
+                        else
+                        {
+                            ViewBag.Message = "Ya existe un archivo con ese nombre";
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.Message = "El arhivo debe de ser .xlsx";
                     }
 
+                }
+                else
+                {
+                    ViewBag.Message = "No se encuentra un archivo que procesar ";
                 }
             }
             else
