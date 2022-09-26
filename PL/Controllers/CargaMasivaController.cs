@@ -62,7 +62,7 @@ namespace PL.Controllers
                                     HttpContext.Session.SetString("PathArchivo", filePath);
                                 }
 
-                                return View(resultValidacion);
+                                     return View(resultValidacion);
                             }
                             else
                             {
@@ -70,14 +70,53 @@ namespace PL.Controllers
                             }
                         }
                     }
+
                 }
             }
             else
             {
+                string rutaArchivoExcel = HttpContext.Session.GetString("PathArchivo");
+                string connectionString = _configuration["ConnectionStringExcel:value"] + rutaArchivoExcel;
+
+                ML.Result resultData = BL.Alumno.ConvertirExceltoDataTable(connectionString);
+                if (resultData.Correct)
+                {
+                    ML.Result resultErrores = new ML.Result();
+                    resultErrores.Objects = new List<object>();
+
+                    foreach (ML.Alumno alumnoItem in resultData.Objects)
+                    {
+
+                        ML.Result resultAdd = BL.Alumno.Add(alumnoItem);
+                        if (!resultAdd.Correct)
+                        {
+                            resultErrores.Objects.Add("No se insertó el Alumno con nombre: " + alumnoItem.Nombre + " Error: " + resultAdd.ErrorMessage);
+                        }
+                    }
+                    if (resultErrores.Objects.Count > 0)
+                    {
+
+                        string fileError = Path.Combine(_hostingEnvironment.WebRootPath, @"~\Files\logErrores.txt");
+                        using (StreamWriter writer = new StreamWriter(fileError))
+                        {
+                            foreach (string ln in resultErrores.Objects)
+                            {
+                                writer.WriteLine(ln);
+                            }
+                        }
+                        ViewBag.Message = "Las Materias No han sido registrados correctamente";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Las Materias han sido registrados correctamente";
+
+                    }
+
+                }
 
             }
-           
-            return View();
+            return PartialView("Modal");
+
         }
     }
 }

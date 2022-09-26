@@ -52,7 +52,7 @@ namespace PL.Controllers
 
             if (IdAlumno == null)
             {
-                //alumno.Semestre.Semestres = result.Objects;
+                alumno.Semestre.Semestres = result.Objects;
                 return View(alumno);
             }
             else
