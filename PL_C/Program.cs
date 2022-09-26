@@ -39,14 +39,14 @@ Console.WriteLine("Hello, World!");
 
 //            ML.Result result = BL.Alumno.Add(alumno);
 
-
-//            if (result.Correct)
-//            {
-//                Console.WriteLine("Correcto");
-//                Console.ReadKey();
-//            }
-//            else
-//            {
+             
+            if (result.Correct)
+            {
+                Console.WriteLine("Correcto");
+                Console.ReadKey();
+            }
+            else
+            {
 
 //            }
 //        }

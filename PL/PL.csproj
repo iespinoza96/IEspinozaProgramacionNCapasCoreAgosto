@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ExcelCargaMasiva\" />
     <Folder Include="wwwroot\Imagenes\" />
   </ItemGroup>
 
