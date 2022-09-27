@@ -13,6 +13,8 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 }); //termina session 
 
+builder.Services.AddControllers(
+    options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
 var app = builder.Build();
 
