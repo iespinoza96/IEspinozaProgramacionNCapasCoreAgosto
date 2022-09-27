@@ -65,48 +65,60 @@ namespace PL.Controllers
         public ActionResult Form(ML.Alumno alumno)
         {
             IFormFile image = Request.Form.Files["IFImage"];
-
-
-            //valido si traigo imagen
-            if (image != null)
+            if (ModelState.IsValid)
             {
-                //llamar al metodo que convierte a bytes la imagen
-                byte[] ImagenBytes = ConvertToBytes(image);
-                //convierto a base 64 la imagen y la guardo en mi objeto materia
-                alumno.Imagen = Convert.ToBase64String(ImagenBytes);
-            }
-
-            ML.Result result = new ML.Result();
-
-            if (alumno.IdAlumno == 0)
-            {
-                result = BL.Alumno.Add(alumno);
-
-                if (result.Correct)
+                
+                //valido si traigo imagen
+                if (image != null)
                 {
-                    ViewBag.Message = "Alumno agregado correctamente";
+                    //llamar al metodo que convierte a bytes la imagen
+                    byte[] ImagenBytes = ConvertToBytes(image);
+                    //convierto a base 64 la imagen y la guardo en mi objeto materia
+                    alumno.Imagen = Convert.ToBase64String(ImagenBytes);
+                }
+
+                ML.Result result = new ML.Result();
+
+                if (alumno.IdAlumno == 0)
+                {
+                    result = BL.Alumno.Add(alumno);
+
+                    if (result.Correct)
+                    {
+                        ViewBag.Message = "Alumno agregado correctamente";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Ocurrio un error al agregar al alumno" + result.ErrorMessage;
+                    }
+
                 }
                 else
                 {
-                    ViewBag.Message = "Ocurrio un error al agregar al alumno" + result.ErrorMessage;
+                    //result = BL.Alumno.Update(alumno);
+
+                    //if (result.Correct)
+                    //{
+                    //    ViewBag.Message = "Alumno actualizado correctamente";
+                    //}
+                    //else
+                    //{
+                    //    ViewBag.Message = "Ocurrio un error al actualizar al alumno" + result.ErrorMessage;
+                    //}
+
                 }
+                return View("Modal");
 
             }
             else
             {
-                //result = BL.Alumno.Update(alumno);
+                ML.Result resultSemestre = BL.Semestre.GetAllEF();
 
-                //if (result.Correct)
-                //{
-                //    ViewBag.Message = "Alumno actualizado correctamente";
-                //}
-                //else
-                //{
-                //    ViewBag.Message = "Ocurrio un error al actualizar al alumno" + result.ErrorMessage;
-                //}
-
+                alumno.Semestre = new ML.Semestre();
+                alumno.Semestre.Semestres = resultSemestre.Objects;
+                return View(alumno);
             }
-            return View("Modal");
+            
         }
 
         public static byte[] ConvertToBytes(IFormFile imagen)

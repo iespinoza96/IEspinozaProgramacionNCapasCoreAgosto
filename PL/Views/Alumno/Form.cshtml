@@ -87,7 +87,7 @@
 
                             @Html.LabelFor(model => model.FechaNacimiento)
 
-                            @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control" })
+                            @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control" , @id = "txtFechaNacimiento" })
 
                             @Html.ValidationMessageFor(model => model.FechaNacimiento)
 
@@ -186,7 +186,7 @@
     <script type="text/javascript">
 
           $( function() {
-    $( "#txtNombre" ).datepicker({
+            $("#txtFechaNacimiento").datepicker({
       changeMonth: true,
       changeYear: true
     });
