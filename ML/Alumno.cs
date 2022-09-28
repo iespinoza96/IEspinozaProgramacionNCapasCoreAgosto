@@ -24,6 +24,7 @@ namespace ML
         [Required]
         [DisplayName("Fecha de nacimiento:")]
         public string FechaNacimiento { get; set; }
+
         public string Sexo { get; set; }
         public string Imagen { get; set; }
         public bool Estatus { get; set; }

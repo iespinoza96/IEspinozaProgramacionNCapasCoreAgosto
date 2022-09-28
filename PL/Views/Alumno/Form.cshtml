@@ -58,7 +58,7 @@
 
                     @Html.LabelFor(model => model.Nombre)
 
-                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombre" })
+                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @id = "txtNombre", @onkeyup="SoloLetras(this)" })
 
                     @Html.ValidationMessageFor(model => model.Nombre)
 
@@ -68,7 +68,7 @@
 
                     @Html.LabelFor(model => model.ApellidoPaterno)
 
-                    @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control" })
+                    @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @id="txtApellidoPaterno",@onkeyup="SoloLetras(this)" })
 
                     @Html.ValidationMessageFor(model => model.ApellidoPaterno)
 
@@ -78,9 +78,11 @@
 
                     @Html.LabelFor(model => model.ApellidoMaterno)
 
-                    @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control" })
+                    @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @onkeypress ="SoloLetras(event, 'lblApellidoMaterno')" })
 
                     @Html.ValidationMessageFor(model => model.ApellidoMaterno)
+
+                    @Html.Label("", null, new {@id = "lblApellidoMaterno"})
 
                 </div>
             </div>
@@ -254,6 +256,27 @@
                   reader.readAsDataURL(input.files[0]);
               }
           }
+
+          function SoloLetrass(inputtxt) {
+    var letters = /^[a-zA-Z\s]*$/;
+    if (!inputtxt.value.match(letters)) {
+        alert('Please input letters only');
+        inputtxt.value = ""
+    }  
+       
+}
+ function SoloLetras(e, controlId) {
+        var caracter = e.key;
+        if (!/^[a-zA-Z\s]*$/.test(caracter)) {
+            $('#' + controlId).text("Solo se aceptan letras");
+            $('#' + controlId).css({ "color": "red" });
+            return false;
+        }
+        else {
+            $('#' + controlId).text("");
+            return true;
+        }
+         }
 </script>
 }
 
