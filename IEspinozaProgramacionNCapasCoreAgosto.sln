@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{7555
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PL_C", "PL_C\PL_C.csproj", "{03327EA7-7593-41BE-8176-6F39280CC726}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SL_WebAPI", "SL_WebAPI\SL_WebAPI.csproj", "{66D4A793-45B5-484F-900E-4CA2512AE04E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{03327EA7-7593-41BE-8176-6F39280CC726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03327EA7-7593-41BE-8176-6F39280CC726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03327EA7-7593-41BE-8176-6F39280CC726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66D4A793-45B5-484F-900E-4CA2512AE04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66D4A793-45B5-484F-900E-4CA2512AE04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66D4A793-45B5-484F-900E-4CA2512AE04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66D4A793-45B5-484F-900E-4CA2512AE04E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
