@@ -4,15 +4,53 @@
 
 namespace SL_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/alumno/")]
     [ApiController]
     public class AlumnoController : ControllerBase
     {
-        // GET: api/<AlumnoController>
+        //// GET: api/<AlumnoController>
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "value1", "value2" };
+        //}
+
+        [Route("GetAll")]
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult GetAll()
         {
-            return new string[] { "value1", "value2" };
+            ML.Alumno alumno = new ML.Alumno();
+
+            ML.Result result = BL.Alumno.GetAll(alumno);
+
+            if (result.Correct)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
+            
+        }
+
+        [Route("GetAll")]
+        [HttpPost]
+        public IActionResult GetAll(ML.Alumno alumno)
+        {
+           // ML.Alumno alumno = new ML.Alumno();
+
+            ML.Result result = BL.Alumno.GetAll(alumno);
+
+            if (result.Correct)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return NotFound();
+            }
+
         }
 
         // GET api/<AlumnoController>/5
