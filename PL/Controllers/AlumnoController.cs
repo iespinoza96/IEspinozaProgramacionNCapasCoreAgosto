@@ -1,30 +1,76 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Drawing.Drawing2D;
+using System.Net.Http;
 
 namespace PL.Controllers
 {
     public class AlumnoController : Controller
     {
+        private readonly IConfiguration _configuration;
+
+        private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
+
+        public AlumnoController(IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment)
+        {
+            _configuration = configuration;
+            _hostingEnvironment = hostingEnvironment;
+        }
         [HttpGet]
+        //public ActionResult GetAll()
+        //{
+        //    ML.Alumno alumno = new ML.Alumno();
+
+
+        //    ML.Result result = BL.Alumno.GetAll(alumno);
+
+        //    if (result.Correct)
+        //    {
+        //        alumno.Alumnos = result.Objects;
+
+        //        return View(alumno);
+        //    }
+        //    else
+        //    {
+        //        return View(alumno);
+        //    }
+        //}
         public ActionResult GetAll()
         {
             ML.Alumno alumno = new ML.Alumno();
+            //materia.Semestre = new ML.Semestre();
 
+            //ML.Result resultSemestre = BL.Semestre.GetAll();
 
-            ML.Result result = BL.Alumno.GetAll(alumno);
+            //materia.Semestre.Semestres = resultSemestre.Objects;
 
-            if (result.Correct)
+            ML.Result resultMaterias = new ML.Result();
+            resultMaterias.Objects = new List<Object>();
+
+            using (var client = new HttpClient())
             {
-                alumno.Alumnos = result.Objects;
+                client.BaseAddress = new Uri(_configuration["WebAPI"]);
 
-                return View(alumno);
+                var responseTask = client.GetAsync("GetAll");
+                responseTask.Wait();
+                //Debe de entrar al servicio
+                var result = responseTask.Result;
+
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<ML.Result>();
+                    readTask.Wait();
+
+                    foreach (var resultItem in readTask.Result.Objects)
+                    {
+                        ML.Alumno resultItemList = Newtonsoft.Json.JsonConvert.DeserializeObject<ML.Alumno>(resultItem.ToString());
+                        resultMaterias.Objects.Add(resultItemList);
+                    }
+                }
+                alumno.Alumnos = resultMaterias.Objects;
             }
-            else
-            {
-                return View(alumno);
-            }
+            return View(alumno);
+
         }
-
         [HttpPost]
         public ActionResult GetAll(ML.Alumno alumno)
         {
@@ -41,7 +87,6 @@ namespace PL.Controllers
                 return View(alumno);
             }
         }
-
         [HttpGet]
         public ActionResult Form(int? IdAlumno)
         {
@@ -60,7 +105,6 @@ namespace PL.Controllers
                 return View();
             }
         }
-
         [HttpPost]
         public ActionResult Form(ML.Alumno alumno)
         {
@@ -120,7 +164,6 @@ namespace PL.Controllers
             }
             
         }
-
         public static byte[] ConvertToBytes(IFormFile imagen)
         {
 
